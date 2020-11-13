@@ -1,0 +1,18 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    title:
+        label: Название промокода
+        searchable: true
+    code:
+        label: Код
+        type: partial
+        path: column_code
+        searchable: true
+    description:
+        label: Описание промокода
+        type: partial
+        path: column_description
+        searchable: true

@@ -1,0 +1,74 @@
+tabs:
+    fields:
+        force_delivery:
+            tab: Выдача товаров
+            label: Принудительная выдача товаров из корзины
+            comment: Если данная настройка включена, товары, находящиеся в корзине, будут выданы игроку на сервере напрямую без участия платежных систем.
+            type: switch
+            span: storm
+            cssClass: col-md-4
+        command_item_partial:
+            tab: Команды для выдачи товаров
+            type: partial
+            path: $/dontfollow/products/models/settings/_item.htm
+            span: storm
+            cssClass: col-md-12
+        command_item:
+            tab: Команды для выдачи товаров
+            label: Команда для выдачи предметов
+            default: 'give {user} {item} {amount}'
+            placeholder: 'give {user} {item} {amount}'
+            span: storm
+            cssClass: col-md-12
+
+        command_permgroup_partial:
+            tab: Команды для выдачи товаров
+            type: partial
+            path: $/dontfollow/products/models/settings/_group.htm
+            span: storm
+            cssClass: col-md-12
+        command_group:
+            tab: Команды для выдачи товаров
+            label: Команда для выдачи привилегий
+            default: 'lp user {user} parent addtemp {group} {lifetime}'
+            placeholder: 'lp user {user} parent addtemp {group} {lifetime}'
+            span: storm
+            cssClass: col-md-12
+
+        command_case_partial:
+            tab: Команды для выдачи товаров
+            type: partial
+            path: $/dontfollow/products/models/settings/_case.htm
+            span: storm
+            cssClass: col-md-12
+        command_case:
+            tab: Команды для выдачи товаров
+            label: Команда для выдачи кейса
+            default: 'cc give {type} {content} {amount} {user}'
+            placeholder: 'cc give {type} {content} {amount} {user}'
+            span: storm
+            cssClass: col-md-12
+
+        command_coin_partial:
+            tab: Команды для выдачи товаров
+            type: partial
+            path: $/dontfollow/products/models/settings/_coin.htm
+            span: storm
+            cssClass: col-md-12
+        command_coin:
+            tab: Команды для выдачи товаров
+            label: Команда для выдачи валюты
+            default: 'eco give {user} {amount}'
+            placeholder: 'eco give {user} {amount}'
+            span: storm
+            cssClass: col-md-12
+
+        default_image:
+            tab: Картинки
+            type: mediafinder
+            mode: image
+            imageWidth: 167
+            label: Картинка товара по умолчанию
+            span: storm
+            cssClass: col-md-2
+            default: /defaults/product.png

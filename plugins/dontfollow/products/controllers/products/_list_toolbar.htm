@@ -1,0 +1,83 @@
+<div class="dropdown">
+    <a
+        href="#" data-toggle="dropdown"
+        class="btn btn-primary oc-icon-plus m-r">
+        Добавить товар
+    </a>
+    <ul class="dropdown-menu" role="menu">
+        <li role="presentation">
+            <a
+                role="menuitem"
+                tabindex="-1"
+                href="<?= Backend::url('dontfollow/products/items/create') ?>"
+                class="oc-icon-cube">
+                Предмет
+            </a>
+        </li>
+        <li role="presentation">
+            <a
+                role="menuitem"
+                tabindex="-1"
+                href="<?= Backend::url('dontfollow/products/groups/create') ?>"
+                class="oc-icon-user">
+                Привилегия
+            </a>
+        </li>
+        <li role="presentation">
+            <a
+                role="menuitem"
+                tabindex="-1"
+                href="<?= Backend::url('dontfollow/products/cases/create') ?>"
+                class="oc-icon-briefcase">
+                Кейс
+            </a>
+        </li>
+        <li role="presentation">
+            <a
+                role="menuitem"
+                tabindex="-1"
+                href="<?= Backend::url('dontfollow/products/coins/create') ?>"
+                class="oc-icon-database">
+                Валюта
+            </a>
+        </li>
+        <li role="presentation">
+            <a
+                role="menuitem"
+                tabindex="-1"
+                href="<?= Backend::url('dontfollow/products/others/create') ?>"
+                class="oc-icon-shopping-basket">
+                Другое
+            </a>
+        </li>
+    </ul>
+
+    <button
+        class="btn btn-danger oc-icon-trash-o m-r"
+        disabled="disabled"
+        onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+        data-request="onDelete"
+        data-request-confirm="Вы уверены, что хотите удалить выбранные товары?"
+        data-trigger-action="enable"
+        data-trigger=".control-list input[type=checkbox]"
+        data-trigger-condition="checked"
+        data-request-success="$(this).prop('disabled', 'disabled')"
+        data-stripe-load-indicator>
+        Удалить выбранные
+    </button>
+
+    <?php if ($this->user->isSuperUser()): ?>
+        <div class="btn-group">
+            <a
+                href="<?= Backend::url('dontfollow/products/products/import') ?>"
+                class="btn btn-default oc-icon-upload">
+                Импорт
+            </a>
+            <a
+                href="<?= Backend::url('dontfollow/products/products/export') ?>"
+                class="btn btn-default oc-icon-download">
+                Экспорт
+            </a>
+        </div>
+    <?php endif ?>
+</div>

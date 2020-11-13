@@ -1,0 +1,58 @@
+tabs:
+    icons:
+        'Главные': icon-space-shuttle
+        'Дополнительно': icon-cog
+    fields:
+        _callout:
+            type: partial
+            path: $/dontfollow/payments/models/unitpay/_callout.htm
+            tab: Главные
+            span: storm
+            cssClass: col-md-12
+        public_key:
+            label: Публичный ключ
+            comment: Публичный ключ можно найти в настройках кассы на официальном сайте UnitPay.
+            tab: Главные
+            span: storm
+            cssClass: col-md-6
+            required: true
+        secret_key:
+            label: Секретный ключ
+            comment: Секретный ключ можно найти в настройках кассы на официальном сайте UnitPay.
+            tab: Главные
+            span: storm
+            cssClass: col-md-6
+            required: true
+        currency:
+            label: Стандартная валюта
+            comment: Все платежи будут проходить в выбранной валюте.
+            tab: Главные
+            type: dropdown
+            span: storm
+            cssClass: col-md-12
+            options:
+                RUB: RUB
+                UAH: UAH
+                BYN: BYN
+                EUR: EUR
+                USD: USD
+            default: RUB
+        use_widget:
+            label: Использовать UnitPay виджет для для совершения оплаты
+            comment: Благодаря виджету UnitPay оформление платежа происходит на Вашей стороне - покупатель не покидает сайт во время оплаты. Никаких новых вкладок. Виджет делает процесс оплаты максимально быстрым и удобным.
+            type: switch
+            span: storm
+            cssClass: col-md-6
+            tab: Главные
+            default: true
+        locale:
+            label: Язык интерфейса платежной системы
+            comment: Этот язык будет установлен при переходе на страницу оплаты товаров.
+            tab: Дополнительно
+            span: storm
+            cssClass: col-md-12
+            type: dropdown
+            options:
+                ru: Русский
+                en: Английский
+            default: ru

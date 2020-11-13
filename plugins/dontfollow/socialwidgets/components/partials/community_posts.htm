@@ -1,0 +1,24 @@
+{% if settings.id %}
+    <div id="vk_community_messages"></div>
+
+    <script type="text/javascript">
+        VK.Widgets.CommunityMessages(
+            "vk_community_messages",
+            {{ settings.id }},
+            {
+                expandTimeout: "{{ settings.expandTimeout * 1000 ?: 60000 }}",
+                {% if settings.disableExpandChatSound %}
+                    disableExpandChatSound: "1",
+                {% endif %}
+                {% if settings.disableNewMessagesSound %}
+                    disableNewMessagesSound: "1",
+                {% endif %}
+                {% if settings.disableButtonTooltip %}
+                    disableButtonTooltip: "1"
+                {% else %}
+                    tooltipButtonText: "{{ settings.tooltipButtonText }}"
+                {% endif %}
+            }
+        );
+    </script>
+{% endif %}

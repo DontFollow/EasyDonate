@@ -1,0 +1,77 @@
+# ===================================
+#  Field Definitions
+# ===================================
+# Light palette: [#1abc9c, #2ecc71, #3498db, #9b59b6, #34495e, #f1c40f, #e67e22, #e74c3c, #ecf0f1, #95a5a6]
+# Dark palette:  [#16a085, #27ae60, #2980b9, #8e44ad, #2b3e50, #f39c12, #d35400, #c0392b, #bdc3c7, #7f8c8d]
+
+tabs:
+    fields:
+
+        logo:
+            label: backend::lang.branding.logo
+            type: fileupload
+            commentAbove: Логотип отображается в навигационной панели.
+            mode: image
+            tab: Заголовки и иконки
+            span: right
+            fileTypes: jpg,jpeg,bmp,png,webp,gif,svg
+
+        app_name:
+            label: Название проекта
+            commentAbove: Это имя отображается в заголовке.
+            tab: Заголовки и иконки
+            span: left
+
+        app_tagline:
+            label: Слоган проекта
+            commentAbove: Слоган будет отображаться под названием проекта.
+            tab: Заголовки и иконки
+            span: left
+
+        favicon:
+            label: backend::lang.branding.favicon
+            type: fileupload
+            commentAbove: Favicon отображается в браузере в соответствующей вкладке Вашего сайта.
+            mode: image
+            tab: Заголовки и иконки
+            span: right
+            fileTypes: jpg,jpeg,bmp,png,webp,gif,svg,ico
+
+        background:
+            label: Фоновое изображение
+            type: fileupload
+            mode: image
+            commentAbove: Фоновое изображение отображается в верхней части сайта.
+            tab: Заголовки и иконки
+            span: right
+            fileTypes: jpg,jpeg,bmp,png,webp,gif,svg
+
+        side:
+            label: Изображение справа
+            type: fileupload
+            mode: image
+            tab: Заголовки и иконки
+            commentAbove: Боковое изображение отображается сбоку, рядом с названием Вашего проекта.
+            span: right
+            fileTypes: jpg,jpeg,bmp,png,webp,gif,svg
+
+        vk_link:
+            label: Ссылка на группу ВКонтакте
+            commentAbove: Ссылка на группу выводится в навигации шаблона.
+            tab: Ссылки
+            span: left
+            default: 'https://vk.com/spacestudiosu'
+
+        discord_link:
+            label: Ссылка на Discord сообщество
+            commentAbove: Ссылка на сообщество выводится в навигации шаблона.
+            tab: Ссылки
+            span: left
+            default: 'https://discord.com'
+
+        youtube_link:
+            label: Ссылка на YouTube канал
+            commentAbove: Ссылка на канал выводится в навигации шаблона.
+            tab: Ссылки
+            span: left
+            default: 'https://youtube.com'

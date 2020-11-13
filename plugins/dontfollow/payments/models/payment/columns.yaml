@@ -1,0 +1,23 @@
+columns:
+    id:
+        label: ID
+        searchable: true
+    customer:
+        label: Покупатель
+        searchable: true
+    payment_system:
+        label: Платежная система
+        searchable: true
+    cost:
+        label: Сумма платежа, руб.
+        searchable: true
+    products:
+        label: Товары
+        searchable: true
+        type: partial
+        path: column_products
+    status:
+        label: Статус
+        searchable: true
+        type: partial
+        path: column_status

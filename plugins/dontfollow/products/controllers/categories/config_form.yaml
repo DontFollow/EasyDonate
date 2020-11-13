@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Категория
+
+# Model Form Field configuration
+form: $/dontfollow/products/models/category/fields.yaml
+
+# Model Class name
+modelClass: DontFollow\Products\Models\Category
+
+# Default redirect location
+defaultRedirect: dontfollow/products/categories
+
+# Create page
+create:
+    title: Создание категории
+    redirect: dontfollow/products/categories/update/:id
+    redirectClose: dontfollow/products/categories
+
+# Update page
+update:
+    title: Изменение категории
+    redirect: dontfollow/products/categories
+    redirectClose: dontfollow/products/categories
+
+# Preview page
+preview:
+    title: Просмотр категории

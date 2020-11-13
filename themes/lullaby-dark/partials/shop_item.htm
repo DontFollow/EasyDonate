@@ -1,0 +1,66 @@
+==
+<div class="profile-card" id="product-{{ product.id }}">
+    <div class="card mt-3 shadow-dark border-0 bg-elegant animate-up-2">
+        {% if product.zest %}
+            <div class="sale">
+                {% if product.sale %}
+                    <div class="sale__size">-{{ ((product.price - product.cost) / product.price * 100) | round }}%</div>
+                {% endif %}
+                <div class="sale__timer">
+                    <div class="text">{{ product.zest }}</div>
+                </div>                     
+            </div>
+        {% endif %}
+        {% if cart.has(product) %}
+            <a
+                class="mr-2 mt-1"
+                data-toggle="tooltip"
+                data-request="onRemove"
+                data-request-data="product_id: {{ product.id }}"
+                data-request-update="shop_item: '#product-{{ product.id }}', cart_counter: '.cart-counter', cart_products: '.cart-products', cart_cost: '.cart-cost'"
+                data-request-loading
+                data-request-flash
+                style="position: absolute; top: 10px; right: 10px; z-index: 10">
+                <span class="btn-inner-icon text-danger"><i class="fas fa-trash"></i></span>
+            </a>
+        {% else %}
+            <a
+                class="mr-2 mt-1"
+                data-toggle="tooltip"
+                data-request="onAdd"
+                data-request-data="product_id: {{ product.id }}"
+                data-request-update="shop_item: '#product-{{ product.id }}', cart_counter: '.cart-counter', cart_products: '.cart-products', cart_cost: '.cart-cost'"
+                data-request-loading
+                data-request-flash
+                style="position: absolute; top: 10px; right: 10px; z-index: 10">
+                <span class="btn-inner-icon text-success"><i class="fas fa-cart-arrow-down"></i></span>
+            </a>
+        {% endif %}
+        <a data-toggle="modal" data-target="#product" data-product-id="{{ product.id }}">
+            <div class="row align-items-center">
+                <div class="col-sm-5">
+                    <div class="card-image text-center p-2 bg-elegant-night position-relative" style="height: 180px">
+                        <span class="shop-image-block">
+                            <img class="img-fluid img-center" width="156" src="{{ product.image | media }}">
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body p-4">
+                        <span class="badge badge-md bg-elegant font-weight-bolder text-uppercase badge-active animate-up-2">
+                            <i class="fas fa-tag mr-2 text-gray"></i>{{ product.category.name }}
+                        </span>
+                        <h3 class="card-title font-weight-bolder">{{ product.title }}</h3>
+                        {% if product.sale %}
+                            <p class="text-through text-small text-muted mb-0">{{ product.price | number_format(2, '.', '') }} руб.</p>
+                        {% endif %}
+                        <h6 class="my-0 font-weight-bold">
+                            {{ product.cost | number_format(2, '.', '') }} руб.
+                            {% if product.type != 'group' %} / {{ product.number }} шт.{% endif %}
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

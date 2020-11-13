@@ -1,0 +1,4 @@
+1.0.1: First version of Promocodes
+1.0.2:
+    - create_promocodes_table.php
+    - create_username_promocode_table.php

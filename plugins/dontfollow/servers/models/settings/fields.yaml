@@ -1,0 +1,45 @@
+tabs:
+    fields:
+        cache.enabled:
+            tab: Кэш
+            label: Сохранять серверы в кэше
+            comment: 'В кэше будет храниться информация о сервере: максимальное и текущее количество игроков, пинг, версия сервера и т.д. Кэш ускоряет загрузку страницы до 30%.'
+            type: switch
+            span: storm
+            cssClass: col-md-6 m-t-md
+            default: true
+        cache.timeout:
+            tab: Кэш
+            min: 1
+            max: 120
+            label: Время "жизни" кэша, в минутах
+            placeholder: 10
+            comment: Время, через которое кэш сбрасывается и информация обновляется.
+            span: storm
+            cssClass: col-md-6
+            type: number
+            default: 10
+            trigger:
+                field: cache.enabled
+                condition: checked
+                action: show
+
+        rcon.checkConnectionBeforeSaveServer:
+            tab: RCON
+            label: Проверять наличие RCON связи с серверов при его добавлении/редактировании
+            comment: Данная настройка удобна, если Вы хотите проверить RCON соединение с сервером.
+            type: switch
+            span: storm
+            cssClass: col-md-6 m-t-md
+            default: false
+
+        query.timeout:
+            tab: Query
+            label: Query timeout, в секундах
+            comment: 'Максимальное время для получения информации о сервере: максимальное и текущее количество игроков, пинг, версия сервера и т.д.'
+            type: number
+            min: 1
+            max: 3
+            default: 1
+            span: storm
+            cssClass: col-md-6

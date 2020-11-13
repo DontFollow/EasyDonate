@@ -1,0 +1,61 @@
+<div class="scoreboard">
+    <div data-control="toolbar">
+        <div class="scoreboard-item title-value">
+            <h4>Версия</h4>
+            <p class="oc-icon-chain-broken">
+                <?php if ($update): ?>
+                    <?php if (isset($update->version)): ?>
+                        <span style="font-weight: 500"><?= $update->version->title ?></span> <span style="font-weight: 100">v<?= $update->version->version ?></span>
+                        <p class="description"><?= $update->version->short_description ?></p>
+                    <?php endif ?>
+                <?php else: ?>
+                    Не найдено
+                <?php endif ?>
+            </p>
+        </div>
+        <div class="scoreboard-item title-value">
+            <h4>Всего версий</h4>
+            <p>
+                <?php if ($updates && $updates->status): ?>
+                    <?= count($updates->versions) ?>
+                <?php else: ?>
+                    0
+                <?php endif ?>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div data-control="toolbar" class="m-l">
+    <a
+        href="javascript:;"
+        class="btn btn-primary oc-icon-refresh"
+        data-control="popup"
+        data-handler="onLoadUpdates">
+        <?= e(trans('system::lang.updates.check_label')) ?>
+    </a>
+</div>
+
+
+<?php if ($updates && $updates->status): ?>
+    <div class="control-list m-t">
+        <table class="table data">
+            <thead>
+                <tr>
+                    <th><span>Название</span></th>
+                    <th><span>Описание</span></th>
+                    <th class="sort-desc"><span>Дата публикации</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($updates->versions as $version): ?>
+                    <tr>
+                        <td><span style="font-weight: 500"><?= $version->title ?></span> <span style="font-weight: 100">v<?= $version->version ?></span></td>
+                        <td><?= $version->description ?></td>
+                        <td><?= date('d.m.Y', strtotime($version->created_at)) ?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+<?php endif ?>

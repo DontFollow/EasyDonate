@@ -1,0 +1,12 @@
+<?php if ($value): ?>
+    <ul style="padding: 0; margin: 0">
+        <?php foreach ($value->take(3) as $product): ?>
+            <li><?= $product->title ?>, <?= $product->count ?> шт.</li>
+        <?php endforeach ?>
+        <?php if ($value->count() > 3): ?>
+            <li>...</li>
+        <?php endif ?>
+    </ul>
+<?php else: ?>
+    Товаров нет.
+<?php endif ?>

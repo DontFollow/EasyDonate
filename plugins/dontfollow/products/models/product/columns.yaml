@@ -1,0 +1,23 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    title:
+        label: Название товара
+        searchable: true
+    price:
+        label: Цена без учета скидки
+    sale:
+        label: Скидка
+    cost:
+        label: Цена с учетом скидки
+    category:
+        label: Категория
+        type: partial
+        path: column_category
+        searchable: true
+    image:
+        label: Картинка
+        type: partial
+        path: column_image

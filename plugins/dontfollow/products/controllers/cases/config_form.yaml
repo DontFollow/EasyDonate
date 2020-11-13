@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Товар
+
+# Model Form Field configuration
+form: $/dontfollow/products/models/product/cases.yaml
+
+# Model Class name
+modelClass: DontFollow\Products\Models\Product
+
+# Default redirect location
+defaultRedirect: dontfollow/products/products
+
+# Create page
+create:
+    title: Создание товара
+    redirect: dontfollow/products/cases/update/:id
+    redirectClose: dontfollow/products/products
+
+# Update page
+update:
+    title: Изменение товара
+    redirect: dontfollow/products/products
+    redirectClose: dontfollow/products/products
+
+# Preview page
+preview:
+    title: Просмотр товара

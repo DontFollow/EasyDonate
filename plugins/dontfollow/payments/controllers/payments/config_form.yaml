@@ -1,0 +1,25 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Платеж
+
+# Model Form Field configuration
+form: $/dontfollow/payments/models/payment/fields.yaml
+
+# Model Class name
+modelClass: DontFollow\Payments\Models\Payment
+
+# Default redirect location
+defaultRedirect: dontfollow/payments/payments
+
+# Update page
+update:
+    title: Изменить платеж
+    redirect: dontfollow/payments/payments
+    redirectClose: dontfollow/payments/payments
+
+# Preview page
+preview:
+    title: Просмотр платежа

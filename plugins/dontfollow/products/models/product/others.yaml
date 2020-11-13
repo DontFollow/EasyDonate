@@ -1,0 +1,121 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        span: storm
+        cssClass: col-md-4
+        label: Название товара
+        placeholder: Остров в океане
+
+    price:
+        span: storm
+        cssClass: col-md-3
+        label: Цена
+        placeholder: 1000
+        default: 1000
+
+    sale:
+        span: storm
+        cssClass: col-md-3
+        label: Скидка
+        default: 0
+        placeholder: 0
+
+    image:
+        tab: Главная
+        type: mediafinder
+        cssClass: col-md-2
+        span: storm
+        mode: image
+        imageWidth: 100
+
+    toolbar:
+        type: partial
+        path: post_toolbar
+        span: storm
+        cssClass: collapse-visible col-md-6 m-t
+
+secondaryTabs:
+    stretch: true
+    fields:
+        category_id:
+            tab: Главная
+            span: storm
+            cssClass: col-md-4
+            type: dropdown
+            label: Категория
+            default: 5
+        servers:
+            tab: Главная
+            span: storm
+            cssClass: col-md-4
+            type: taglist
+            mode: relation
+            label: Серверы, на которых возможна продажа товара
+            required: true
+            comment: Оставьте пустым, чтобы выбрать все серверы.
+        first_delete:
+            tab: Главная
+            label: Удалить товар после первой покупки
+            comment: Товар автоматически удаляется и становится недоступным после первой покупки любым игроком.
+            span: storm
+            cssClass: col-md-4 m-t-md
+            type: switch
+        minecraft_id:
+            span: storm
+            cssClass: col-md-4
+            label: Идентификатор товара
+            comment: Уникальное название товара в Minecraft. Это может быть название региона.
+            placeholder: island
+            tab: Главная
+        number:
+            span: storm
+            cssClass: col-md-4
+            label: Количество
+            placeholder: 1
+            default: 1
+            min: 1
+            type: number
+            tab: Главная
+        force_commands:
+            label: Команды для выдачи товара
+            commentAbove: Вы можете написать здесь несколько команд, если товар невозможно выдать с помощью одной.
+            type: repeater
+            tab: Главная
+            titleFrom: command
+            prompt: + Добавить команду
+            span: storm
+            cssClass: col-md-12 m-t
+            default:
+                0:
+                    command:
+            form:
+                fields:
+                    command:
+                        span: storm
+                        cssClass: col-md-12
+                        label: Команда для выдачи товара
+                        comment: '{user} - логин покупателя, {id} - идентификатор товара, {amount} - количество.'
+                        placeholder: 'rg addowner {user} {id}'
+        short_description:
+            size: large
+            span: full
+            type: richeditor
+            tab: Описание
+            toolbarButtons: fullscreen|bold|italic|underline|strikeThrough|subscript|superscript|fontFamily|fontSize|color|emoticons|inlineStyle|paragraphStyle|paragraphFormat|align|formatOL|formatUL|outdent|indent|quote|insertHR|insertLink|insertImage|insertTable|undo|redo|clearFormatting|selectAll|html
+            placeholder: Короткое описание товара
+        description:
+            size: large
+            span: full
+            type: richeditor
+            toolbarButtons: fullscreen|bold|italic|underline|strikeThrough|subscript|superscript|fontFamily|fontSize|color|emoticons|inlineStyle|paragraphStyle|paragraphFormat|align|formatOL|formatUL|outdent|indent|quote|insertHR|insertLink|insertImage|insertTable|undo|redo|clearFormatting|selectAll|html
+            tab: Описание
+            placeholder: Полное описание товара
+
+        type:
+            tab: Главная
+            type: partial
+            path: $/dontfollow/products/controllers/products/_type_field.htm
+            default: other

@@ -1,0 +1,29 @@
+description = "Список товаров"
+==
+<div class="select-server">
+    {% partial 'select_server' %}
+</div>
+
+
+<div class="row d-flex justify-content-center">
+    <div class="col-12 filter-item" id="category-{{ category.name }}">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-lg-6">
+                            {% partial 'shop_item' product = product %}
+                        </div>
+                    {% else %}
+                        <div class="col-12">
+                            <div class="text-center mt-6 text-uppercase">
+                                <i class="fas fa-cogs text-light fa-3x"></i>
+                                <p class="text-white text-small mb-0 mt-2">Товаров пока нет</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

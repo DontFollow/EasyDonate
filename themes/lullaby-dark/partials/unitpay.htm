@@ -1,0 +1,33 @@
+description = "UnitPay"
+==
+<script type="text/javascript">
+    function pay(publicKey, account, signature, sum = 0, desc = 'Описание платежа', locale = 'ru', currency = 'RUB') {
+        var payment = new UnitPay();
+        payment.createWidget({
+            publicKey: publicKey,
+            sum: sum,
+            account: account,
+            signature: signature,
+            desc: desc,
+            locale: locale,
+            currency: currency
+        });
+        payment.success(function (params) {
+            console.log('Успешный платеж');
+            
+            $.request('onFlush', {
+                update: {
+                    basket_counter: '.basket-counter',
+                    shop: '.shop',
+                    basket: '.basket'
+                }
+            });
+        });
+        payment.error(function (message, params) {
+            console.log(message);
+        });
+        return false;
+    };
+    
+    pay('{{ publicKey }}', '{{ account }}', '{{ signature }}', {{ sum ?: 0 }}, '{{ desc ?: 'Покупка товаров' }}', '{{ locale ?: 'ru' }}', '{{ currency ?: 'RUB' }}');
+</script>

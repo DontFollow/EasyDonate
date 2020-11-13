@@ -1,0 +1,94 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('dontfollow/payments/payments') ?>">Платежи</a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <?= Form::open(['class' => 'layout']) ?>
+        <?php $payment = $vars['formModel']; ?>
+        <div class="layout-row">
+            <div class="paypal">
+                <div class="paypal__header">
+                    <div class="paypal__logo-wrapper">
+                        <img src="<?= Backend\Models\BrandSetting::getLogo() ?: Backend::skinAsset('assets/images/logo.png') ?>" class="paypal__logo">
+                    </div>
+
+                    <div class="paypal__header-info">
+                        <span class="paypal__date"><?= $payment->updated_at->format('d M. Yг., H:i') ?></span>
+                        <span class="paypal__ref">ID транзакции: <?= $payment->id ?></span>
+                    </div>
+                </div>
+
+                <div class="paypal__subheader-wrapper">
+                    <div class="paypal__subheader">
+                        <h1 class="paypal__username">Игрок: <?= $payment->customer ?></h1>
+                        <span class="paypal__help-text">Сервер: <u><?= $payment->server->name ?></u></span>
+                    </div>
+                </div>
+
+                <div class="paypal__cart">
+                    <h2 class="paypal__cart-title">Корзина:</h2>
+
+                    <ul class="paypal__cart-list">
+                        <?php foreach ($payment->products as $id => $product): ?>
+                            <li class="paypal__cart-item">
+                                <span class="paypal__index"><img src="<?= Config::get('cms.storage.media.path', '/storage/app/media') . e($product->image) ?>" width="32px"></span>
+                                <span class="paypal__item-name"><?= $product->title ?></span>
+                                <span class="paypal__item-price"><?= $product->cost ?> руб.</span>
+                            </li>
+                        <?php endforeach ?>
+
+                        <li class="paypal__cart-item">
+                            <span class="paypal__cart-total">Итого:</span>
+                            <span class="paypal__item-price"><?= $payment->cost ?> руб.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- <?= $this->formRender() ?> -->
+        </div>
+
+        <div class="form-buttons">
+            <div class="loading-indicator-container">
+                <button
+                    type="submit"
+                    data-request="onSave"
+                    data-request-data="redirect:0"
+                    data-hotkey="ctrl+s, cmd+s"
+                    data-load-indicator="Сохранение платежа..."
+                    class="btn btn-primary">
+                    <u>С</u>охранить
+                </button>
+                <button
+                    type="button"
+                    data-request="onSave"
+                    data-request-data="close:1"
+                    data-hotkey="ctrl+enter, cmd+enter"
+                    data-load-indicator="Сохранение платежа..."
+                    class="btn btn-default">
+                    Сохранить и Закрыть
+                </button>
+                <button
+                    type="button"
+                    class="oc-icon-trash-o btn-icon danger pull-right"
+                    data-request="onDelete"
+                    data-load-indicator="Удаление платежа..."
+                    data-request-confirm="Удалить выбранный платеж?">
+                </button>
+                <span class="btn-text">
+                    или <a href="<?= Backend::url('dontfollow/payments/payments') ?>">Выйти</a>
+                </span>
+            </div>
+        </div>
+
+    <?= Form::close() ?>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p><a href="<?= Backend::url('dontfollow/payments/payments') ?>" class="btn btn-default">Вернуться к списку платежей</a></p>
+
+<?php endif ?>

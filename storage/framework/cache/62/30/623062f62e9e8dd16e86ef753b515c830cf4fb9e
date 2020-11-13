@@ -1,0 +1,18 @@
+1601763753a:1:{s:17:"modals/server.htm";a:6:{s:8:"fileName";s:17:"modals/server.htm";s:7:"content";s:397:"==
+<div class="modal fade" id="server" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content server-modal bg-elegant">
+            <p class="text-center m-5">
+                Загрузка сервера...
+            </p>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1600798205;s:6:"markup";s:394:"<div class="modal fade" id="server" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content server-modal bg-elegant">
+            <p class="text-center m-5">
+                Загрузка сервера...
+            </p>
+        </div>
+    </div>
+</div>";s:4:"code";N;s:17:"_PARSER_ERROR_INI";s:0:"";}}

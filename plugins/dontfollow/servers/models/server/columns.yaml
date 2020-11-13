@@ -1,0 +1,20 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: Название сервера
+        searchable: true
+    ip:
+        label: IP
+        searchable: true
+    port:
+        label: Порт
+        searchable: true
+    address:
+        label: Полный адрес сервера
+        searchable: true

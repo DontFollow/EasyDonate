@@ -1,0 +1,27 @@
+<style media="screen">
+    .badge {
+        padding: 4px;
+        border-radius: 5px;
+        color: white;
+        background: gray;
+    }
+
+    .badge-danger {
+        background: firebrick !important;
+    }
+
+    .badge-warning {
+        background: orange !important;
+    }
+
+    .badge-success {
+        background: forestgreen !important;
+    }
+</style>
+<?php if ($value === 0): ?>
+    <span class="badge badge-danger">Не оплачен</span>
+<?php elseif ($value === 1): ?>
+    <span class="badge badge-warning">В обработке</span>
+<?php elseif ($value === 2): ?>
+    <span class="badge badge-success">Оплачен</span>
+<?php endif ?>

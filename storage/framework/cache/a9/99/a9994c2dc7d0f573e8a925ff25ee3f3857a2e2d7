@@ -1,0 +1,93 @@
+1600193704a:1:{s:10:"server.htm";a:6:{s:8:"fileName";s:10:"server.htm";s:7:"content";s:2825:"description = "Описание сервера"
+==
+<div class="modal-header bg-elegant-night border-0 text-white">
+    <h5 class="mb-0 font-weight-light">Описание сервера</h5>
+    <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true" class="text-white">×</span>
+    </button>
+</div>
+<div class="modal-body text-white">
+    <div class="py-4 row">
+        <div class="col-sm-3 text-center my-auto">
+            <span class="modal-icon"><i class="fas fa-server fa-6x"></i></span>
+        </div>
+        <div class="col-sm-9 my-auto">
+            <h4 class="modal-title mt-2">Сервер <span class="font-weight-bolder">{{ server.name }}</span></h4>
+            <p class="m-0">{{ server.short_description | raw }}</p>
+            {% if server.description %}
+                <hr class="m-0"><p class="w-100">{{ server.description | raw }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<div class="modal-footer border-0 d-block bg-elegant-night px-5">
+    <div class="text-white">        
+        {% if server.info %}
+            <h5 class="font-weight-bold text-center mb-3">
+                Как играть на сервере <span class="font-weight-bolder">{{ server.name }}</span>?
+            </h5>
+            
+            <p class="font-weight-bold mb-0">1. Скачать <span class="font-weight-bolder">Minecraft</span></p>
+            <p class="mt-0">Скачайте <span class="font-weight-bolder">клиент Minecraft</span> и откройте приложение.</p>
+    
+            <p class="font-weight-bold mb-0">2. Выбор версии</p>
+            <p class="mt-0">
+                Установите необходимую <span class="font-weight-bolder">версию</span> игры и дождитесь загрузки клиента.<br>
+                Версии, доступные для входа на сервер: <span class="badge badge-info">{{ server.info.Version }}</span>
+            </p>
+                    
+            <p class="font-weight-bolder mb-0">3. Вход на сервер</p>
+            <p class="mt-0">Во вкладке <span class="font-weight-bolder">Сетевая игра</span> нажмите на кнопку <span class="font-weight-bolder">Добавить сервер</span> и введите адрес сервера: <span class="badge badge-info">{{ server.address }}</span></p>
+        {% else %}
+            <div class="text-center text-uppercase">
+                <i class="fas fa-skull-crossbones fa-3x text-tertiary mt-2"></i>
+                <p class="text-white mb-0 mt-1">Сервер временно недоступен</p>
+            </div>
+        {% endif %}
+    </div>
+</div>";s:5:"mtime";i:1599602446;s:6:"markup";s:2774:"<div class="modal-header bg-elegant-night border-0 text-white">
+    <h5 class="mb-0 font-weight-light">Описание сервера</h5>
+    <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true" class="text-white">×</span>
+    </button>
+</div>
+<div class="modal-body text-white">
+    <div class="py-4 row">
+        <div class="col-sm-3 text-center my-auto">
+            <span class="modal-icon"><i class="fas fa-server fa-6x"></i></span>
+        </div>
+        <div class="col-sm-9 my-auto">
+            <h4 class="modal-title mt-2">Сервер <span class="font-weight-bolder">{{ server.name }}</span></h4>
+            <p class="m-0">{{ server.short_description | raw }}</p>
+            {% if server.description %}
+                <hr class="m-0"><p class="w-100">{{ server.description | raw }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<div class="modal-footer border-0 d-block bg-elegant-night px-5">
+    <div class="text-white">        
+        {% if server.info %}
+            <h5 class="font-weight-bold text-center mb-3">
+                Как играть на сервере <span class="font-weight-bolder">{{ server.name }}</span>?
+            </h5>
+            
+            <p class="font-weight-bold mb-0">1. Скачать <span class="font-weight-bolder">Minecraft</span></p>
+            <p class="mt-0">Скачайте <span class="font-weight-bolder">клиент Minecraft</span> и откройте приложение.</p>
+    
+            <p class="font-weight-bold mb-0">2. Выбор версии</p>
+            <p class="mt-0">
+                Установите необходимую <span class="font-weight-bolder">версию</span> игры и дождитесь загрузки клиента.<br>
+                Версии, доступные для входа на сервер: <span class="badge badge-info">{{ server.info.Version }}</span>
+            </p>
+                    
+            <p class="font-weight-bolder mb-0">3. Вход на сервер</p>
+            <p class="mt-0">Во вкладке <span class="font-weight-bolder">Сетевая игра</span> нажмите на кнопку <span class="font-weight-bolder">Добавить сервер</span> и введите адрес сервера: <span class="badge badge-info">{{ server.address }}</span></p>
+        {% else %}
+            <div class="text-center text-uppercase">
+                <i class="fas fa-skull-crossbones fa-3x text-tertiary mt-2"></i>
+                <p class="text-white mb-0 mt-1">Сервер временно недоступен</p>
+            </div>
+        {% endif %}
+    </div>
+</div>";s:4:"code";N;s:11:"description";s:31:"Описание сервера";}}

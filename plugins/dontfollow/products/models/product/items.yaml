@@ -1,0 +1,103 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        span: storm
+        cssClass: col-md-4
+        label: Название предмета
+        placeholder: Алмаз
+
+    price:
+        span: storm
+        cssClass: col-md-3
+        label: Цена за единицу
+        placeholder: 100
+        default: 100
+
+    sale:
+        span: storm
+        cssClass: col-md-3
+        label: Скидка
+        default: 0
+        placeholder: 0
+
+    image:
+        tab: Главная
+        type: mediafinder
+        cssClass: col-md-2
+        span: storm
+        mode: image
+        imageWidth: 100
+
+    toolbar:
+        type: partial
+        path: post_toolbar
+        span: storm
+        cssClass: collapse-visible col-md-6 m-t
+
+secondaryTabs:
+    stretch: true
+    fields:
+        category_id:
+            tab: Главная
+            span: storm
+            cssClass: col-md-4
+            type: dropdown
+            label: Категория
+            default: 1
+        servers:
+            tab: Главная
+            span: storm
+            cssClass: col-md-4
+            type: taglist
+            mode: relation
+            label: Серверы, на которых возможна продажа предмета
+            required: true
+            comment: Оставьте пустым, чтобы выбрать все серверы.
+        first_delete:
+            tab: Главная
+            label: Удалить предмет после первой покупки
+            comment: Предмет автоматически удаляется и становится недоступным после первой покупки любым игроком.
+            span: storm
+            cssClass: col-md-4 m-t-md
+            type: switch
+        minecraft_id:
+            required: true
+            span: storm
+            cssClass: col-md-4
+            label: Идентификатор предмета
+            comment: Уникальный идентификатор предмета на Вашем сервере.
+            placeholder: minecraft:diamond
+            tab: Главная
+        number:
+            span: storm
+            cssClass: col-md-4
+            label: Количество
+            placeholder: 1
+            default: 1
+            min: 1
+            max: 64
+            type: number
+            tab: Главная
+        short_description:
+            size: large
+            span: full
+            type: richeditor
+            tab: Описание
+            toolbarButtons: fullscreen|bold|italic|underline|strikeThrough|subscript|superscript|fontFamily|fontSize|color|emoticons|inlineStyle|paragraphStyle|paragraphFormat|align|formatOL|formatUL|outdent|indent|quote|insertHR|insertLink|insertImage|insertTable|undo|redo|clearFormatting|selectAll|html
+            placeholder: Короткое описание предмета
+        description:
+            size: large
+            span: full
+            type: richeditor
+            toolbarButtons: fullscreen|bold|italic|underline|strikeThrough|subscript|superscript|fontFamily|fontSize|color|emoticons|inlineStyle|paragraphStyle|paragraphFormat|align|formatOL|formatUL|outdent|indent|quote|insertHR|insertLink|insertImage|insertTable|undo|redo|clearFormatting|selectAll|html
+            tab: Описание
+            placeholder: Полное описание предмета
+
+        type:
+            tab: Главная
+            type: partial
+            path: $/dontfollow/products/controllers/products/_type_field.htm
+            default: item

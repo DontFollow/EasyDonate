@@ -1,0 +1,7 @@
+{
+    "require": {
+        "axdlee/laravel-config-writer": "^1.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "thedudeguy/rcon": "^1.0"
+    }
+}

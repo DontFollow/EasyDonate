@@ -1,0 +1,98 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        span: storm
+        cssClass: col-md-4
+        label: Название промокода
+        placeholder: Осенняя акция
+
+    sale:
+        span: storm
+        cssClass: col-md-3
+        label: Скидка, %
+        placeholder: 10
+        default: 10
+
+    code:
+        span: storm
+        cssClass: col-md-3
+        label: Код
+        placeholder: AUTUMN-10
+
+    is_active:
+        span: storm
+        cssClass: col-md-12 m-t-md
+        label: Промокод активен
+        type: switch
+        default: true
+
+    toolbar:
+        type: partial
+        path: post_toolbar
+        span: storm
+        cssClass: collapse-visible col-md-6 m-t
+
+secondaryTabs:
+    stretch: true
+    fields:
+        expires_at:
+            tab: Основные
+            span: storm
+            cssClass: col-md-8
+            type: datepicker
+            label: Действителен до
+            comment: Укажите дату истечения промокода.
+        limit:
+            tab: Основные
+            span: storm
+            cssClass: col-md-4
+            type: number
+            label: Количество использований
+            comment: Сколько раз один пользовать может использовать этот промокод?
+        products:
+            tab: Основные
+            span: storm
+            cssClass: col-md-4
+            label: Товары
+            comment: Укажите товары, которые получат скидку. Или оставьте это поле пустым, если хотиле применить промокод ко всем товарам.
+            type: taglist
+            mode: array
+            options: getProductsOptions
+            useKey: true
+            comment: Сколько раз один пользовать может использовать этот промокод?
+        servers:
+            tab: Основные
+            span: storm
+            cssClass: col-md-4
+            label: Серверы
+            comment: Укажите серверы, для которых будет действовать промокод.
+            type: taglist
+            mode: array
+            options: getServersOptions
+            useKey: true
+            comment: Сколько раз один пользовать может использовать этот промокод?
+        product_types:
+            tab: Основные
+            span: storm
+            cssClass: col-md-4
+            label: Типы товаров
+            comment: Укажите типы товаров, для которых будет действовать промокод.
+            type: taglist
+            mode: array
+            options:
+                item: Предметы
+                group: Привилегии
+                case: Кейсы
+                coin: Валюта
+                other: Другие
+            useKey: true
+
+        description:
+            span: full
+            type: richeditor
+            toolbarButtons: fullscreen|bold|italic|underline|strikeThrough|subscript|superscript|fontFamily|fontSize|color|emoticons|inlineStyle|paragraphStyle|paragraphFormat|align|formatOL|formatUL|outdent|indent|quote|insertHR|insertLink|insertImage|insertTable|undo|redo|clearFormatting|selectAll|html
+            tab: Описание
+            placeholder: Описание промокода

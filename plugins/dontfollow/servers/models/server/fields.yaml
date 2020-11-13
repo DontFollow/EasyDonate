@@ -1,0 +1,68 @@
+fields:
+    name:
+        span: storm
+        cssClass: col-md-12
+        label: Название сервера
+        placeholder: Classic
+
+    ip:
+        span: storm
+        cssClass: col-md-6
+        label: IP-Адрес сервера
+        placeholder: 127.0.0.1
+
+    port:
+        span: storm
+        cssClass: col-md-3
+        label: Порт сервера
+        placeholder: 25565
+
+    is_port_hidden:
+        span: storm
+        cssClass: col-md-3 m-t-md
+        label: Скрыть порт сервера
+        type: switch
+
+    toolbar:
+        type: partial
+        path: post_toolbar
+        cssClass: collapse-visible
+
+secondaryTabs:
+    stretch: true
+    fields:
+        rcon.hint:
+            tab: RCON
+            type: partial
+            span: full
+            path: rcon_hint
+
+        rcon_port:
+            span: left
+            tab: RCON
+            label: RCON порт
+            comment: Обычно не совпадает с портом сервера.
+            placeholder: 25566
+
+        rcon_password:
+            span: right
+            tab: RCON
+            label: RCON пароль
+            placeholder: fsfeu8&3hfs&@hdejf
+            comment: Никому не говорите пароль.
+
+        short_description:
+            size: large
+            span: fullscreen
+            cssClass: p-b-0
+            type: richeditor
+            tab: Описание
+            placeholder: Короткое описание сервера
+
+        description:
+            size: large
+            span: fullscreen
+            cssClass: p-b-0
+            type: richeditor
+            tab: Описание
+            placeholder: Полное описание сервера

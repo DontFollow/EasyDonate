@@ -1,0 +1,9 @@
+import:
+    title: Импорт товаров
+    modelClass: DontFollow\Products\Models\ProductImport
+    list: $/dontfollow/products/models/productimport/columns.yaml
+
+export:
+    title: Экспорт товаров
+    modelClass: DontFollow\Products\Models\ProductExport
+    list: $/dontfollow/products/models/productexport/columns.yaml

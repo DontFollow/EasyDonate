@@ -1,0 +1,24 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id: ID
+    title: Название
+    description: Описание
+    short_description: Короткое описание
+    minecraft_id: Идентификатор товара в Minecraft
+    number: Количество товара
+    type: Тип товара
+    group_lifetime: Время действия привилегии
+    group_temp_modifier: Модификтор времени
+    case_type: Тип кейса
+    case_content: Содержимое кейса
+    force_commands: Команда для выдачи (для "других" товаров)
+    price: Цена
+    sale: Скидка
+    category_id: Категория
+    first_delete: Удалить после первой покупки
+    image: Картинка товара
+    created_at: Дата создания
+    updated_at: Дата обновления

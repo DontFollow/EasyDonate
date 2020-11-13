@@ -1,0 +1,38 @@
+tabs:
+    fields:
+        enabled:
+            label: Включить плагин?
+            default: true
+            type: switch
+            comment: Если плагин выключен, список последних купленных товаров пользователями отображаться не будет.
+            span: storm
+            cssClass: col-md-12
+            tab: Основные
+        limit:
+            label: Сколько купленных товаров отображать?
+            placeholder: 10
+            default: 10
+            type: number
+            min: 1
+            max: 100
+            span: storm
+            cssClass: col-md-3
+            tab: Основные
+            trigger:
+                condition: checked
+                field: enabled
+                action: show
+        items:
+            label: Сколько товаров выводить в карусели?
+            placeholder: 6
+            default: 6
+            type: number
+            min: 1
+            max: 6
+            span: storm
+            cssClass: col-md-3
+            tab: Основные
+            trigger:
+                condition: checked
+                field: enabled
+                action: show

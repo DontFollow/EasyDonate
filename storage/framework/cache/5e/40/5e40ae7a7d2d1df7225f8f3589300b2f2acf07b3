@@ -1,0 +1,68 @@
+1601763753a:1:{s:17:"select_server.htm";a:6:{s:8:"fileName";s:17:"select_server.htm";s:7:"content";s:1539:"==
+{% if servers | length > 0 %}
+    <div class="btn-group h6">
+        Сервер:
+        <a
+            class="dropdown-toggle dropdown-toggle-split font-weight-bold text-underline"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+            {{ server.name }}
+        </a>
+        {% if servers | length > 1 %}
+            <div class="dropdown-menu" x-placement="bottom" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 31px, 0px);">
+                {% for _server in servers if server.id != _server.id %}
+                    <a
+                        class="dropdown-item font-weight-bolder text-black chose-server"
+                        data-request="onSelectServer"
+                        data-request-data="server_id: {{ _server.id }}"
+                        data-request-update="
+                            shop: '.shop',
+                            select_server: '.select-server',
+                            cart_products: '.cart-products',
+                            cart_cost: '.cart-cost',
+                            selected_server: '.server',
+                            cart_counter: '.cart-counter'
+                        "
+                        data-request-loading
+                        data-request-flash>
+                        {{ _server.name }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endif %}";s:5:"mtime";i:1600798205;s:6:"markup";s:1536:"{% if servers | length > 0 %}
+    <div class="btn-group h6">
+        Сервер:
+        <a
+            class="dropdown-toggle dropdown-toggle-split font-weight-bold text-underline"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+            {{ server.name }}
+        </a>
+        {% if servers | length > 1 %}
+            <div class="dropdown-menu" x-placement="bottom" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 31px, 0px);">
+                {% for _server in servers if server.id != _server.id %}
+                    <a
+                        class="dropdown-item font-weight-bolder text-black chose-server"
+                        data-request="onSelectServer"
+                        data-request-data="server_id: {{ _server.id }}"
+                        data-request-update="
+                            shop: '.shop',
+                            select_server: '.select-server',
+                            cart_products: '.cart-products',
+                            cart_cost: '.cart-cost',
+                            selected_server: '.server',
+                            cart_counter: '.cart-counter'
+                        "
+                        data-request-loading
+                        data-request-flash>
+                        {{ _server.name }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endif %}";s:4:"code";N;s:17:"_PARSER_ERROR_INI";s:0:"";}}

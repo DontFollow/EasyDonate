@@ -1,0 +1,69 @@
+description = "Описание товара"
+==
+<div class="modal-header bg-elegant-night border-0">
+    <h6 class="modal-title text-white mb-0">{{ product.title }}</h6>
+    <button style="padding: 0.95rem" type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true" class="text-white">×</span>
+    </button>
+</div>
+<div class="modal-body text-white">
+    <span class="badge badge-md bg-elegant-dark font-weight-bold text-uppercase">
+        <i class="fas fa-tag mr-2 text-gray"></i>{{ product.category.name }}
+    </span>
+    <div class="py-3 text-center">
+        <div class="card-image text-center p-2">
+            <img class="img-fluid fw-200" width="156" src="{{ product.image | media }}">
+        </div>
+        <h3 class="modal-title mt-3">{{ product.title }}</h3>
+        <div class="mt-2">
+            {% if product.sale %}
+                <p class="text-through text-small text-muted mb-0">{{ product.price | number_format(2, '.', '') }} руб.</p>
+            {% endif %}
+            <h5 class="mb-0 font-weight-bolder">
+                {{ product.cost | number_format(2, '.', '') }} руб.
+                {% if product.type != 'group' %} / {{ product.number }} шт.{% endif %}
+            </h5>
+        </div>
+    </div>
+    {% if product.short_description %}
+        <div class="my-3 text-underline">
+            {{ product.short_description | raw }}
+        </div>
+    {% endif %}
+    {% if product.description %}
+        <div class="my-3">
+            {{ product.description | raw }}
+        </div>
+    {% endif %}
+</div>
+<div class="modal-footer bg-elegant-night d-flex justify-content-center border-0">
+    {% if cart.has(product) %}
+        <button
+            class="btn btn-icon btn-danger animate-up-2"
+            type="button"
+            data-request="onRemove"
+            data-request-data="product_id: {{ product.id }}"
+            data-request-update="shop_item: '#product-{{ product.id }}', cart_counter: '.cart-counter', product: '.product-modal', cart_cost: '.cart-cost', cart_products: '.cart-products'"
+            data-request-loading
+            data-request-flash>
+            <span class="btn-inner-icon"><i class="fas fa-times"></i></span>
+            <span class="btn-inner-text">Убрать из корзины</span>
+        </button>
+        <button class="btn btn-icon btn-secondary animate-up-2" data-toggle="modal" data-target="#cart">
+            <span class="btn-inner-icon"><i class="fas fa-shopping-basket"></i></span>
+            <span class="btn-inner-text">Открыть корзину</span>
+        </button>
+    {% else %}
+        <button
+            class="btn btn-icon btn-secondary animate-up-2"
+            type="button"
+            data-request="onAdd"
+            data-request-data="product_id: {{ product.id }}"
+            data-request-update="shop_item: '#product-{{ product.id }}', cart_counter: '.cart-counter', product: '.product-modal', cart_cost: '.cart-cost', cart_products: '.cart-products'"
+            data-request-loading
+            data-request-flash>
+            <span class="btn-inner-icon"><i class="fas fa-cart-plus"></i></span>
+            <span class="btn-inner-text">Добавить в корзину</span>
+        </button>
+    {% endif %}
+</div>

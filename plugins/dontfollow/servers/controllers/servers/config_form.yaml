@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Сервер
+
+# Model Form Field configuration
+form: $/dontfollow/servers/models/server/fields.yaml
+
+# Model Class name
+modelClass: DontFollow\Servers\Models\Server
+
+# Default redirect location
+defaultRedirect: dontfollow/servers/servers
+
+# Create page
+create:
+    title: Создание сервера
+    redirect: dontfollow/servers/servers/update/:id
+    redirectClose: dontfollow/servers/servers
+
+# Update page
+update:
+    title: Изменение сервера
+    redirect: dontfollow/servers/servers
+    redirectClose: dontfollow/servers/servers
+
+# Preview page
+preview:
+    title: Просмотр сервера

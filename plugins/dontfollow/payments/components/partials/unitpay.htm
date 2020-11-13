@@ -1,0 +1,28 @@
+<script type="text/javascript">
+    function pay(publicKey, account, signature, sum = 0, desc = 'Покупка товаров', locale = 'ru', currency = 'RUB') {
+        var payment = new UnitPay();
+        payment.createWidget({
+            publicKey: publicKey,
+            account: account,
+            signature: signature,
+            sum: sum,
+            desc: desc,
+            locale: locale,
+            currency: currency
+        });
+        payment.success(function (params) {
+            $.request('Shop::onFlush', {
+                update: {
+                    cart_counter: '.cart-counter',
+                    shop: '.shop',
+                    cart_products: '.cart-products',
+                    cart_cost: '.cart-cost'
+                }
+            });
+        });
+        payment.error(function (message, params) {
+            console.log(message);
+        });
+        return false;
+    };
+</script>

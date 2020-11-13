@@ -1,0 +1,160 @@
+description = "Корзина"
+==
+<div class="container-fluid">
+    <div class="row text-white">
+        <div class="col-lg-7 bg-elegant-dark">
+            <div class="row">
+                <div class="col-12 bg-elegant-dark">
+                    <div class="m-3 mt-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <h3 class="h3 font-weight-bolder text-white mb-0">Корзина</h3>
+                                <div class="select-server">{% partial 'select_server' %}</div>
+                            </div>
+                            <div class="col-6 text-right">
+                                <a
+                                    data-toggle="tooltip"
+                                    data-placement="left"
+                                    title="Очистить корзину"
+                                    class="text-danger"
+                                    data-request="onFlush"
+                                    data-request-confirm="Вы действительно хотите очистить корзину?"
+                                    data-request-update="cart_products: '.cart-products', cart_cost: '.cart-cost', shop: '.shop'"
+                                    data-request-flash>
+                                    <i class="fas fa-dumpster-fire"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row my-5 cart-products">
+                            {% partial 'cart_products' products = cart.products %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 py-4">
+                    <h5 class="h5 ml-3 font-weight-bolder">
+                        {% if settings.show_more_products and moreProducts %}
+                            С этими товарами также покупают
+                        {% else %}
+                            Инструкция по покупке
+                        {% endif %}
+                    </h3>
+                    {% for product in moreProducts if settings.show_more_products %}
+                        <div class="col-12">
+                            <div class="profile-card mb-3">
+                                <div class="card bg-elegant-dark border-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-4 px-0 my-auto">
+                                            <div class="card-image text-center">
+                                                <img class="img-fluid shop-basket-image" src="{{ product.image }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-7 px-0 my-auto">
+                                            <div class="card-body p-2 text-white">
+                                                <h5 class="card-title mb-0">{{ product.name }}</h5>
+                                                <h6 class="font-weight-bolder basket-pricelist-{{ product.id }}">
+                                                    {% partial 'pricelist' product = product %}
+                                                </h6>
+                                                <div class="mt-3">
+                                                    <button
+                                                        class="btn mb-2 mr-2 btn-success animate-up-2"
+                                                        type="button"
+                                                        data-request="onPut"
+                                                        data-request-data="product_id: '{{ product.id }}'"
+                                                        data-request-flash>
+                                                        <i class="fas fa-cart-arrow-down fa-xs"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="m-3 mt-4">
+                            <p class="font-weight-bolder mb-0">1. Выбор товара</p>
+                            <p class="mt-0">Добавьте необходимые товары в корзину и заполните предлагаемую форму.</p>
+        
+                            <p class="font-weight-bolder mb-0">2. Оплата товара</p>
+                            <p class="mt-0">Оплатите товары, добавленные в корзину.</p>
+        
+                            <p class="font-weight-bolder mb-0">3. Активация</p>
+                            <p class="mt-0">После оплаты товары выдаются на выбранном Вами сервере автоматически.</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-5">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mx-3 mt-4 mb-4" style="border-bottom: 2px dashed #f4f4f4">
+                        <div class="row">
+                            <div class="col-6">
+                                <p class="text-uppercase position-absolute" style="bottom: 0">
+                                    <small class="font-weight-bolder">Итого:</small>
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <h2 class="text-right font-weight-bolder">
+                                    <span class="cart-cost">{% partial 'cart_cost' %}</span><i class="fas fa-ruble-sign ml-2"></i>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="alert-warning p-3 mb-3">
+                                    <span class="alert-inner--icon"><i class="fas fa-exclamation-circle"></i></span>
+                                    <span class="alert-inner--text">
+                                        <strong>Внимание!</strong>
+                                        Некоторые товары (например блоки) могут быть выданы только в том случае, если Вы находитесь на сервере.
+                                    </span>
+                                </div>
+                                <p class="font-weight-bolder">Для покупки товара заполните форму.</p>
+                            </div>
+                            <div class="col-12">
+                                {{ form_ajax('onBuy', {
+                                    flash: true,
+                                    update: "cart_products: '.cart-products', cart_cost: '.cart-cost', shop: '.shop'",
+                                    success: 'if (data["force"] === false) return pay(data["publicKey"], data["account"], data["signature"], data["sum"], data["desc"], data["locale"], data["currency"])'
+                                }) }}
+                                    <div class="form-row form-input-username" id="cart-fields">
+                                        <div class="form-group col-12 focused">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text border-0 bg-elegant-dark text-dark">
+                                                        <i class="fas fa-user"></i>
+                                                    </span>
+                                                </div>
+                                                <input
+                                                    class="form-control border-0 bg-elegant-dark pl-2"
+                                                    placeholder="Ник на сервере"
+                                                    type="text"
+                                                    name="username"
+                                                    {% if username %}
+                                                        value="{{ username }}"
+                                                        data-toggle="tooltip"
+                                                        title="Сохраненный ник"
+                                                        data-placement="left"
+                                                    {% endif %}>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <button
+                                        type="submit"
+                                        class="btn btn-danger mb-4 animate-right-2">
+                                        Купить на <span class="text-underline server">{% partial 'selected_server' %}</span>
+                                    </button>
+                                {{ form_close() }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

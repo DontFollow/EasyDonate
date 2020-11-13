@@ -1,0 +1,148 @@
+1600700546a:1:{s:13:"cart_item.htm";a:6:{s:8:"fileName";s:13:"cart_item.htm";s:7:"content";s:4586:"==
+<div class="profile-card" id="cart-{{ product.product_id }}">
+    <div class="card bg-elegant-dark border-0">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-3 px-0 my-auto">
+                    <div class="card-image text-center">
+                        <img class="img-fluid img-center shop-basket-image" src="{{ product.image | media }}">
+                    </div>
+                </div>
+                <div class="col-9 px-3 my-auto">
+                    <div class="card-body p-2 text-white">
+                        <h5 class="card-title mb-3 font-weight-bolder">{{ product.title }}</h5>
+                        <h6 class="font-weight-bolder basket-pricelist-{{ product.product_id }}">
+                            {{ product.cost | number_format(2, '.', '') }}<i class="fas fa-ruble-sign mx-1"></i>{% if product.type not in ['group', 'other'] %} / {{ product.count }} шт.{% endif %}
+                        </h6>
+                        <div class="mt-3">
+                            <button
+                                class="btn mb-2 mr-2 btn-danger animate-up-2"
+                                type="button"
+                                data-request="onRemove"
+                                data-request-data="product_id: '{{ product.product_id }}', server_id: '{{ server.id }}'"
+                                data-request-update="cart_cost: '.cart-cost', cart_products: '.cart-products', shop_item: '#product-{{ product.product_id }}'"
+                                data-request-flash>
+                                <i class="fas fa-trash fa-xs"></i>
+                            </button>
+                            {% if product.type not in ['group', 'other'] %}
+                                {% if product.count > product.number %}
+                                    <button
+                                        class="btn mb-2 mr-2 bg-elegant animate-up-2"
+                                        type="button"
+                                        data-request="onDecrease"
+                                        data-request-data="product_id: '{{ product.product_id }}', server_id: '{{ chosenServer.id }}'"
+                                        data-request-update="cart_cost: '.cart-cost', cart_item: '#cart-{{ product.product_id }}'"
+                                        data-request-flash>
+                                        <i class="fas fa-minus fa-xs"></i>
+                                    </button>
+                                {% else %}
+                                    <button
+                                        class="btn mb-2 mr-2 btn-light disabled"
+                                        style="cursor: not-allowed"
+                                        type="button">
+                                        <i class="fas fa-minus fa-xs"></i>
+                                    </button>
+                                {% endif %}
+                                <button
+                                    class="btn mb-2 mr-2 bg-elegant animate-up-2"
+                                    type="button"
+                                    data-request="onIncrease"
+                                    data-request-data="product_id: '{{ product.product_id }}'"
+                                    data-request-update="cart_cost: '.cart-cost', cart_item: '#cart-{{ product.product_id }}'"
+                                    data-request-flash>
+                                    <i class="fas fa-plus fa-xs"></i>
+                                </button>
+                            {% else %}
+                                <button
+                                    class="btn mb-2 mr-2 btn-light disabled"
+                                    style="cursor: not-allowed"
+                                    type="button">
+                                    <i class="fas fa-minus fa-xs"></i>
+                                </button>
+                                <button
+                                    class="btn mb-2 mr-2 btn-light disabled"
+                                    style="cursor: not-allowed"
+                                    type="button">
+                                    <i class="fas fa-plus fa-xs"></i>
+                                </button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1600540404;s:6:"markup";s:4583:"<div class="profile-card" id="cart-{{ product.product_id }}">
+    <div class="card bg-elegant-dark border-0">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-3 px-0 my-auto">
+                    <div class="card-image text-center">
+                        <img class="img-fluid img-center shop-basket-image" src="{{ product.image | media }}">
+                    </div>
+                </div>
+                <div class="col-9 px-3 my-auto">
+                    <div class="card-body p-2 text-white">
+                        <h5 class="card-title mb-3 font-weight-bolder">{{ product.title }}</h5>
+                        <h6 class="font-weight-bolder basket-pricelist-{{ product.product_id }}">
+                            {{ product.cost | number_format(2, '.', '') }}<i class="fas fa-ruble-sign mx-1"></i>{% if product.type not in ['group', 'other'] %} / {{ product.count }} шт.{% endif %}
+                        </h6>
+                        <div class="mt-3">
+                            <button
+                                class="btn mb-2 mr-2 btn-danger animate-up-2"
+                                type="button"
+                                data-request="onRemove"
+                                data-request-data="product_id: '{{ product.product_id }}', server_id: '{{ server.id }}'"
+                                data-request-update="cart_cost: '.cart-cost', cart_products: '.cart-products', shop_item: '#product-{{ product.product_id }}'"
+                                data-request-flash>
+                                <i class="fas fa-trash fa-xs"></i>
+                            </button>
+                            {% if product.type not in ['group', 'other'] %}
+                                {% if product.count > product.number %}
+                                    <button
+                                        class="btn mb-2 mr-2 bg-elegant animate-up-2"
+                                        type="button"
+                                        data-request="onDecrease"
+                                        data-request-data="product_id: '{{ product.product_id }}', server_id: '{{ chosenServer.id }}'"
+                                        data-request-update="cart_cost: '.cart-cost', cart_item: '#cart-{{ product.product_id }}'"
+                                        data-request-flash>
+                                        <i class="fas fa-minus fa-xs"></i>
+                                    </button>
+                                {% else %}
+                                    <button
+                                        class="btn mb-2 mr-2 btn-light disabled"
+                                        style="cursor: not-allowed"
+                                        type="button">
+                                        <i class="fas fa-minus fa-xs"></i>
+                                    </button>
+                                {% endif %}
+                                <button
+                                    class="btn mb-2 mr-2 bg-elegant animate-up-2"
+                                    type="button"
+                                    data-request="onIncrease"
+                                    data-request-data="product_id: '{{ product.product_id }}'"
+                                    data-request-update="cart_cost: '.cart-cost', cart_item: '#cart-{{ product.product_id }}'"
+                                    data-request-flash>
+                                    <i class="fas fa-plus fa-xs"></i>
+                                </button>
+                            {% else %}
+                                <button
+                                    class="btn mb-2 mr-2 btn-light disabled"
+                                    style="cursor: not-allowed"
+                                    type="button">
+                                    <i class="fas fa-minus fa-xs"></i>
+                                </button>
+                                <button
+                                    class="btn mb-2 mr-2 btn-light disabled"
+                                    style="cursor: not-allowed"
+                                    type="button">
+                                    <i class="fas fa-plus fa-xs"></i>
+                                </button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>";s:4:"code";N;s:17:"_PARSER_ERROR_INI";s:0:"";}}

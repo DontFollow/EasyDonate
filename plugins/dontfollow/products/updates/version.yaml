@@ -1,0 +1,12 @@
+1.0.1:
+    - Create products table
+    - create_product_categories_table.php
+    - create_products_table.php
+1.0.2:
+    - create_product_server_table.php
+1.0.3:
+    - Seed tables
+    - seed_categories_table.php
+    - seed_products_table.php
+1.0.4:
+    - update_products_description_column_type.php

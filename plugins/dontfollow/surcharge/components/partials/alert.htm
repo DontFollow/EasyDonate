@@ -1,0 +1,29 @@
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+    <span class="alert-inner--icon"><i class="far fa-bell"></i></span>
+    <span class="alert-inner--text">
+        <strong>Внимание!</strong> На сайте работает доплата. Цены на товары выставляются автоматически.
+    </span>
+    <button type="button" class="close" style="right: 0; top: 0; padding: 20px; transform: none" data-dismiss="alert" aria-label="Close" data-request="onAcceptSurcharge">
+        <span aria-hidden="true">×</span>
+    </button>
+    <div class="form-group mt-4">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text border-0 text-dark">
+                    <i class="fas fa-user"></i>
+                </span>
+            </div>
+            <input
+                class="form-control border-0 pl-2"
+                placeholder="Имя пользователя"
+                type="text"
+                value="{{ username }}"
+                name="username"
+                data-request="onAcceptUsername"
+                data-request-update="shop: '.shop'"
+                data-track-input>
+        </div>
+        <small>Введите имя пользователя, чтобы посмотреть доступные товары с доплатой.</small>
+    </div>
+
+</div>

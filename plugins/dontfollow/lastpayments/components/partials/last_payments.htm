@@ -1,0 +1,35 @@
+{% if payments.count > 0 %}
+    <section class="section section-md pt-5 text-white wow fadeInUp" id="last-payments">
+        <div class="container text-white">
+            <h2 class="h1 font-weight-bolder text-center mb-5">Последние покупки</h2>
+            <div class="owl-carousel owl-theme">
+                {% for payment in payments %}
+                    {% for product in payment.products %}
+                        <div class="item">
+                            <a data-toggle="modal" data-target="#product" data-product-id="{{ product.product_id }}">
+                                <div class="card bg-elegant-dark border-0">
+                                    <div class="card-body">
+                                        <img src="{{ product.image | media }}" alt="{{ product.title }}" class="img-center" style="max-width: 128px">
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <p class="mb-0" style="line-height: 19px">{{ product.title }}, x{{ product.count ?: 1 }}</p>
+                                        <small class="text-muted" style="line-height: 19px">{{ payment.customer }}</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".owl-carousel").owlCarousel({
+                items: {{ items ?: 6 }},
+                autoWidth: true
+            });
+        });
+    </script>
+{% endif %}

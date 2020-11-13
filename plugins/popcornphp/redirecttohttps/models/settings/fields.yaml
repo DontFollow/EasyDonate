@@ -1,0 +1,16 @@
+fields:
+    enableHttpsRedirect:
+        label: HTTPS переадресация
+        type: switch
+        span: storm
+        cssClass: col-md-3
+        comment: Все входящие запросы будут автоматически переадресованы на HTTPS протокол.
+
+    statusCode:
+        label: popcornphp.redirecttohttps::lang.settings.status_code
+        type: dropdown
+        span: storm
+        cssClass: col-md-6
+        options:
+            302: 302
+            301: 301

@@ -1,0 +1,35 @@
+# ===================================
+#  Dashboard Config
+# ===================================
+
+defaultWidgets:
+
+    welcome:
+        class: Backend\ReportWidgets\Welcome
+        sortOrder: 50
+        configuration:
+            ocWidgetWidth: 7
+
+    activeTheme:
+        class: Cms\ReportWidgets\ActiveTheme
+        sortOrder: 60
+        configuration:
+            ocWidgetWidth: 5
+
+    systemStatus:
+         class: System\ReportWidgets\Status
+         sortOrder: 70
+         configuration:
+             ocWidgetWidth: 7
+
+    products:
+         class: DontFollow\EasyDonate\ReportWidgets\Products
+         sortOrder: 80
+         configuration:
+             ocWidgetWidth: 7
+
+    servers:
+         class: DontFollow\EasyDonate\ReportWidgets\Servers
+         sortOrder: 90
+         configuration:
+             ocWidgetWidth: 5

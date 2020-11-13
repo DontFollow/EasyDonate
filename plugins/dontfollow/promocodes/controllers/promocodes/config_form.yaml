@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Промокод
+
+# Model Form Field configuration
+form: $/dontfollow/promocodes/models/promocode/fields.yaml
+
+# Model Class name
+modelClass: DontFollow\Promocodes\Models\Promocode
+
+# Default redirect location
+defaultRedirect: dontfollow/promocodes/promocodes
+
+# Create page
+create:
+    title: Создать промокод
+    redirect: dontfollow/promocodes/promocodes/update/:id
+    redirectClose: dontfollow/promocodes/promocodes
+
+# Update page
+update:
+    title: Изменить промокод
+    redirect: dontfollow/promocodes/promocodes
+    redirectClose: dontfollow/promocodes/promocodes
+
+# Preview page
+preview:
+    title: Просмотр промокода

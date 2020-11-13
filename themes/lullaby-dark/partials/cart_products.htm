@@ -1,0 +1,11 @@
+==
+<div class="col-md-12">
+    {% for product in cart.products %}
+        {% partial 'cart_item' product = product %}
+    {% else %}
+        <div class="text-center text-uppercase">
+            <i class="fas fa-cogs text-light fa-3x"></i>
+            <p class="text-white text-small mb-0 mt-2">Корзина пуста</p>
+        </div>
+    {% endfor %}
+</div>

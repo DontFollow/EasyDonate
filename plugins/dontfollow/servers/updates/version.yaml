@@ -1,0 +1,8 @@
+1.0.1:
+    - Create `servers` table
+    - create_servers_table.php
+1.0.2:
+    - Seed tables
+    - seed_servers_table.php
+1.0.3:
+    - add_servers_is_port_hidden_column.php

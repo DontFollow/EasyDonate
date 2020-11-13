@@ -1,0 +1,40 @@
+<div class="report-widget">
+    <div class="row">
+        <div class="col-md-4">
+            <h5>Общий доход</h5>
+            <div
+                class="control-chart centered wrap-legend"
+                style="width: 100%"
+                data-control="chart-pie"
+                data-size="200"
+                data-center-text="<?= $servers->sum('income') ?: 0 ?>₽">
+                <ul>
+                    <?php foreach ($servers as $server): ?>
+                        <li><?= $server->name ?> <span><?= $server->income ?: 0 ?>₽</span></li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h5>Динамика общих доходов</h5>
+            <div
+                data-control="chart-line"
+                data-time-mode="weeks"
+                class="height-200"
+                data-chart-options="xaxis: {mode: 'time'}">
+                <span
+                    data-chart="dataset"
+                    data-set-color="#008dc9"
+                    data-set-data="[1477857082000, 400], [1477943482000, 380], [1478029882000, 340], [1478116282000, 540], [1478202682000, 440], [1478289082000, 360], [1478375482000, 220]"
+                    data-set-name="Visits">
+                </span>
+                <span
+                    data-chart="dataset"
+                    data-set-color="black"
+                    data-set-data="[1477857082000, 4004], [1477943482000, 3820], [1478029882000, 340], [1478116282000, 540], [1478202682000, 440], [1478289082000, 360], [1478375482000, 220]"
+                    data-set-name="Visfits">
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

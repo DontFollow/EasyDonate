@@ -1,0 +1,16 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Название категории
+        span: storm
+        cssClass: col-md-12
+        placeholder: Привилегии
+    description:
+        label: Описание категории
+        span: storm
+        cssClass: col-md-12
+        placeholder: Опишите кратко, что общего между товарами в этой категории..?
+        type: textarea

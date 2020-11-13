@@ -1,0 +1,62 @@
+<div class="report-widget">
+    <h3><?= e(trans($this->property('title'))) ?></h3>
+    <?php if (count($products) > 0): ?>
+        <div class="scoreboard m-b-md m-t">
+            <div data-control="toolbar" class="p-t">
+                <div class="scoreboard-item control-chart" data-control="chart-pie">
+                    <ul>
+                        <li data-color="#95b753">Предметы <span><?= count($items) ?></span></li>
+                        <li data-color="#428bca">Привилегии <span><?= count($groups) ?></span></li>
+                        <li data-color="#cc3300">Кейсы <span><?= count($boxes) ?></span></li>
+                        <li data-color="#e5a91a">Монеты <span><?= count($coins) ?></span></li>
+                        <li data-color="#363d3f">Другие <span><?= count($others) ?></span></li>
+                    </ul>
+                </div>
+
+                <div class="scoreboard-item control-chart" data-control="chart-bar">
+                    <ul>
+                        <li data-color="#95b753">Предметы <span><?= count($items) ?></span></li>
+                        <li data-color="#428bca">Привилегии <span><?= count($groups) ?></span></li>
+                        <li data-color="#cc3300">Кейсы <span><?= count($boxes) ?></span></li>
+                        <li data-color="#e5a91a">Монеты <span><?= count($coins) ?></span></li>
+                        <li data-color="#363d3f">Другие <span><?= count($others) ?></span></li>
+                    </ul>
+                </div>
+
+                <div class="scoreboard-item title-value">
+                    <h4>Всего</h4>
+                    <p><?= count($products) ?></p>
+                    <p class="description">товаров</p>
+                </div>
+
+                <div class="scoreboard-item title-value">
+                    <h4>Стоимость</h4>
+                    <p class="positive"><?= round($overallCost, 2) ?> руб.</p>
+                    <p class="description">общая</p>
+                </div>
+
+                <div class="scoreboard-item title-value">
+                    <h4>Скидка</h4>
+                    <p class="negative"><?= round($overallCost - $overallSaleCost, 2) ?> руб.</p>
+                    <p class="description">Общая</p>
+                </div>
+
+                <div class="scoreboard-item title-value">
+                    <h4>Стоимость</h4>
+                    <p><?= round($overallSaleCost, 2) ?> руб.</p>
+                    <p class="description">общая со скидкой</p>
+                </div>
+
+                <div class="scoreboard-item title-value" data-control="goal-meter" data-value="<?= round(100 - ($overallCost - $overallSaleCost) / $overallCost * 100, 2) ?>">
+                    <h4>Процент скидки</h4>
+                    <p><?= round(($overallCost - $overallSaleCost) / $overallCost * 100, 2) ?>%</p>
+                    <p class="description">от общей стоимости</p>
+                </div>
+            </div>
+        </div>
+        <a href="<?= Backend::url('dontfollow/products/products') ?>">К списку товаров <i class="icon-angle-right" style="margin-left: 5px"></i></a>
+    <?php else: ?>
+        <h2>Товары отсутствуют</h2>
+        <a href="<?= Backend::url('dontfollow/products/items/create') ?>">Добавить товар <i class="icon-angle-right" style="margin-left: 5px"></i></a>
+    <?php endif ?>
+</div>
